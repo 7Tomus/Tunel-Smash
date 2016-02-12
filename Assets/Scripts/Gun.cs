@@ -40,6 +40,10 @@ public class Gun : MonoBehaviour {
 			if(Physics.Raycast(ray, out hit, shotDistance)){
 				shotDistance = hit.distance;
 				GameObject cube = mapGenerator.cubeList.Find(GameObject => GameObject.name == hit.collider.name);
+				if(cube.tag == "Emperium"){
+					return;
+				}
+
 				if(cube.tag == "TileIronOre"){
 					if(inventory.ironOre >= inventory.carryLimit){
 						return;
@@ -72,6 +76,8 @@ public class Gun : MonoBehaviour {
 			case 3: {newProjectile.GetComponent<Renderer>().material.color = new Color(0f,1f,0f,1f); projectileGlow.color =  new Color(0f,1f,0f); break;}
 			}
 			newProjectile.AddForce(spawn.forward * projectileSpeed);
+			newProjectile.GetComponent<Projectile>().speed = projectileSpeed;
+			//newProjectile.freezeRotation = true;
 			if(magazine<=0){
 				magazine = 3;
 				nextPossibleShotTime = Time.time + secondsBetweenShots;

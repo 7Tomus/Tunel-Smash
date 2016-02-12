@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour {
 
 	private GameObject player0,player1,player2,player3;
 	private Text Hp0,Hp1,HP2,Hp3;
+	public int speed;
 
 	void Start(){
 		player0 = GameObject.FindWithTag("Player0");
@@ -24,23 +25,23 @@ public class Projectile : MonoBehaviour {
 		switch(c.tag){
 			case "Border":
 			gameObject.GetComponent<Rigidbody>().Sleep();
-			gameObject.GetComponent<BoxCollider>().enabled = false;
+			gameObject.GetComponent<SphereCollider>().enabled = false;
 				break;
 			case "TileDirt":
 			gameObject.GetComponent<Rigidbody>().Sleep();
-			gameObject.GetComponent<BoxCollider>().enabled = false;
+			gameObject.GetComponent<SphereCollider>().enabled = false;
 				break;
 			case "TileRock":
 			gameObject.GetComponent<Rigidbody>().Sleep();
-			gameObject.GetComponent<BoxCollider>().enabled = false;
+			gameObject.GetComponent<SphereCollider>().enabled = false;
 				break;
 			case "TileIronOre":
 			gameObject.GetComponent<Rigidbody>().Sleep();
-			gameObject.GetComponent<BoxCollider>().enabled = false;
+			gameObject.GetComponent<SphereCollider>().enabled = false;
 				break;
 			case "TileIron":
 			gameObject.GetComponent<Rigidbody>().Sleep();
-			gameObject.GetComponent<BoxCollider>().enabled = false;
+			gameObject.GetComponent<SphereCollider>().enabled = false;
 				break;
 			case "Player0":
 				Hp0.text = player0.GetComponent<PlayerInventory>().changeHitPoints(-1).ToString();

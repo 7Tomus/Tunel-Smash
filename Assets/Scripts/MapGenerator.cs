@@ -133,7 +133,7 @@ public class MapGenerator : MonoBehaviour {
 				cubeList.Find(GameObject => GameObject.transform.position == new Vector3(x,cubeHeight/2,y)).SetActive(false);
 			}
 		}
-		playerModel.transform.position = new Vector3(posX, 0.5f, posY);
+		playerModel.transform.position = new Vector3(posX+1, 0.5f, posY-1);
 		playerModel.GetComponent<PlayerInventory>().setStartingPosition(posX,posY);
 		playerList.Add(playerModel);
 
@@ -142,13 +142,11 @@ public class MapGenerator : MonoBehaviour {
 		cubeList.Find(GameObject => GameObject.transform.position == new Vector3(posX,cubeHeight/2,posY-2)).SetActive(false);
 
 		GameObject smelter = cubeList.Find(GameObject => GameObject.transform.position == new Vector3(posX+1,cubeHeight/2,posY+1)); //smelter
+		smelter.transform.position = new Vector3(posX+1,0.1f,posY+1);
 		smelter.GetComponent<TileProperties>().SetSmelter(teamNumber);
-		switch(teamNumber){
-		case 0: {smelter.AddComponent<Light>().color =  new Color(0f,1f,1f); break;}
-		case 1: {smelter.AddComponent<Light>().color =  new Color(1f,0f,1f); break;}
-		case 2: {smelter.AddComponent<Light>().color =  new Color(1f,1f,0f); break;}
-		case 3: {smelter.AddComponent<Light>().color =  new Color(0f,1f,0f); break;}
-		}
+		GameObject emperium = cubeList.Find(GameObject => GameObject.transform.position == new Vector3(posX,cubeHeight/2,posY)); //emperium
+		emperium.GetComponent<TileProperties>().SetEmperium(teamNumber);
+
 	}
 
 	bool ProximityCheck(int posX, int posY){

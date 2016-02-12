@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{244583EB-D972-A4BF-24B2-84A0888C1A0A}") = "tunelsmash", "Assembly-CSharp.csproj", "{1030CC95-A51F-0E8A-485E-71F08D6B910E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1030CC95-A51F-0E8A-485E-71F08D6B910E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1030CC95-A51F-0E8A-485E-71F08D6B910E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1030CC95-A51F-0E8A-485E-71F08D6B910E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1030CC95-A51F-0E8A-485E-71F08D6B910E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

@@ -53,14 +53,17 @@ public class PlayerInventory : MonoBehaviour {
 	}
 
 	IEnumerator respawn(){
-		yield return new WaitForSeconds(5*numberOfDeaths+10);
-		numberOfDeaths += 1;
-		gameObject.transform.position = new Vector3(startX, 0.5f, startY);
-		yield return new WaitForSeconds(1);
-		gameObject.GetComponent<Renderer>().material.color = startColor;
-		hitPoints = 10;
-		hpText.text = hitPoints.ToString();
-		gameObject.GetComponent<PlayerController>().enabled = true;
+		GameObject emperium = GameObject.Find("Emperium"+playerNumber);
+		if(emperium.GetComponent<EmperiumController>().isAlive){
+			yield return new WaitForSeconds(5*numberOfDeaths+10);
+			numberOfDeaths += 1;
+			gameObject.transform.position = new Vector3(startX, 0.5f, startY);
+			yield return new WaitForSeconds(1);
+			gameObject.GetComponent<Renderer>().material.color = startColor;
+			hitPoints = 10;
+			hpText.text = hitPoints.ToString();
+			gameObject.GetComponent<PlayerController>().enabled = true;
+		}
 	}
 
 	public int getPlayerNumber(){
