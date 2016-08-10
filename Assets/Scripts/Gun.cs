@@ -69,12 +69,17 @@ public class Gun : MonoBehaviour {
 		if(CanShoot()){
 			magazine--;
 			Rigidbody newProjectile = Instantiate(projectile, spawn.position, spawn.rotation) as Rigidbody;
-			switch(inventory.getPlayerNumber()){
+			Color32 playerColor = inventory.gameObject.GetComponent<Renderer>().material.color;
+			newProjectile.GetComponent<Renderer>().material.color = playerColor;
+			projectileGlow.color = playerColor;
+			/*
+			switch(inventory.teamNumber){
 			case 0: {newProjectile.GetComponent<Renderer>().material.color = new Color(0f,1f,1f,1f); projectileGlow.color =  new Color(0f,1f,1f); break;}
 			case 1: {newProjectile.GetComponent<Renderer>().material.color = new Color(1f,0f,1f,1f); projectileGlow.color =  new Color(1f,0f,1f); break;}
 			case 2: {newProjectile.GetComponent<Renderer>().material.color = new Color(1f,1f,0f,1f); projectileGlow.color =  new Color(1f,1f,0f); break;}
 			case 3: {newProjectile.GetComponent<Renderer>().material.color = new Color(0f,1f,0f,1f); projectileGlow.color =  new Color(0f,1f,0f); break;}
 			}
+			*/
 			newProjectile.AddForce(spawn.forward * projectileSpeed);
 			newProjectile.GetComponent<Projectile>().speed = projectileSpeed;
 			//newProjectile.freezeRotation = true;

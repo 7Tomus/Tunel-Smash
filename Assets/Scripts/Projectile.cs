@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Projectile : MonoBehaviour {
 
 	private GameObject player0,player1,player2,player3;
-	private Text Hp0,Hp1,HP2,Hp3;
+	private Text Hp0,Hp1,Hp2,Hp3;
 	public int speed;
 
 	void Start(){
@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour {
 		player3 = GameObject.FindWithTag("Player3");
 		Hp0 = GameObject.Find("Hp0").GetComponent<Text>();
 		Hp1 = GameObject.Find("Hp1").GetComponent<Text>();
-		HP2 = GameObject.Find("Hp2").GetComponent<Text>();
+		Hp2 = GameObject.Find("Hp2").GetComponent<Text>();
 		Hp3 = GameObject.Find("Hp3").GetComponent<Text>();
 
 		StartCoroutine("Fade");
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour {
 				Destroy(gameObject);
 				break;
 			case "Player2":
-				HP2.text = player2.GetComponent<PlayerInventory>().changeHitPoints(-1).ToString();
+				Hp2.text = player2.GetComponent<PlayerInventory>().changeHitPoints(-1).ToString();
 				Destroy(gameObject);
 				break;
 			case "Player3":

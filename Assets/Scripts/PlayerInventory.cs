@@ -23,6 +23,7 @@ public class PlayerInventory : MonoBehaviour {
 	public int startX, startY;
 	public int numberOfDeaths = 0;
 	private Color startColor;
+	public int teamNumber;
 
 	void Start () {
 		hitPoints = 10;
@@ -53,7 +54,7 @@ public class PlayerInventory : MonoBehaviour {
 	}
 
 	IEnumerator respawn(){
-		GameObject emperium = GameObject.Find("Emperium"+playerNumber);
+		GameObject emperium = GameObject.Find("Emperium"+teamNumber);
 		if(emperium.GetComponent<EmperiumController>().isAlive){
 			yield return new WaitForSeconds(5*numberOfDeaths+10);
 			numberOfDeaths += 1;

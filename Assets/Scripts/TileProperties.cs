@@ -51,13 +51,16 @@ public class TileProperties : MonoBehaviour {
 		gameObject.name = "Smelter" + teamNumber;
 		gameObject.tag = "Smelter";
 		gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
-		gameObject.transform.localScale = new Vector3(1,0.2f,1);
+		gameObject.GetComponent<Renderer>().material.color = new Color(1f,1f,1f,0.08f);
+		/*
+		//gameObject.transform.localScale = new Vector3(1,0.2f,1);
 		switch(teamNumber){
 		case 0: {gameObject.GetComponent<Renderer>().material.color = new Color(0f,1f,1f,0.1f);break;}
 		case 1: {gameObject.GetComponent<Renderer>().material.color = new Color(1f,0,1f,0.1f);break;}
 		case 2: {gameObject.GetComponent<Renderer>().material.color = new Color(1f,1f,0f,0.1f);break;}
 		case 3: {gameObject.GetComponent<Renderer>().material.color = new Color(0f,1f,0f,0.1f);break;}
 		}
+		*/
 		gameObject.AddComponent<SmelterController>();
 		BoxCollider[] boxColliders = gameObject.GetComponents<BoxCollider>();
 		foreach(BoxCollider thisBoxCollider in boxColliders){
